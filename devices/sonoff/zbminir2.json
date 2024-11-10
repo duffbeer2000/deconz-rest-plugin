@@ -1,0 +1,220 @@
+{
+  "schema": "devcap1.schema.json",
+  "manufacturername": "SONOFF",
+  "modelid": "ZBMINIR2",
+  "product": "ZBMINIR2",
+  "sleeper": false,
+  "status": "Gold",
+  "path": "/devices/zbminir2.json",
+  "subdevices": [
+    {
+      "type": "$TYPE_ON_OFF_OUTPUT",
+      "restapi": "/lights",
+      "uuid": [
+        "$address.ext",
+        "0x01"
+      ],
+      "items": [
+        {
+          "name": "attr/id"
+        },
+        {
+          "name": "attr/lastannounced"
+        },
+        {
+          "name": "attr/lastseen"
+        },
+        {
+          "name": "attr/manufacturername"
+        },
+        {
+          "name": "attr/modelid"
+        },
+        {
+          "name": "attr/name"
+        },
+        {
+          "name": "attr/swversion"
+        },
+        {
+          "name": "attr/type"
+        },
+        {
+          "name": "attr/uniqueid"
+        },
+        {
+          "name": "state/on",
+          "refresh.interval": 5,
+          "read": {
+            "at": "0x0000",
+            "cl": "0x0006",
+            "ep": 1,
+            "fn": "zcl:attr"
+          },
+          "parse": {
+            "at": "0x0000",
+            "cl": "0x0006",
+            "ep": 1,
+            "eval": "Item.val = Attr.val",
+            "fn": "zcl:attr"
+          }
+        },
+        {
+          "name": "state/reachable"
+        }
+      ]
+    },
+    {
+      "type": "$TYPE_SWITCH",
+      "restapi": "/sensors",
+      "uuid": [
+        "$address.ext",
+        "0x01",
+        "0x0006"
+      ],
+      "items": [
+        {
+          "name": "attr/id"
+        },
+        {
+          "name": "attr/lastannounced"
+        },
+        {
+          "name": "attr/lastseen"
+        },
+        {
+          "name": "attr/manufacturername"
+        },
+        {
+          "name": "attr/modelid"
+        },
+        {
+          "name": "attr/name"
+        },
+        {
+          "name": "attr/swversion"
+        },
+        {
+          "name": "attr/type"
+        },
+        {
+          "name": "attr/uniqueid"
+        },
+		{
+          "name": "config/delay",
+          "description": "Timedelay for On/Off state on device startup (power on).",
+          "refresh.interval": 3600,
+		  "default": 0,
+          "read": {
+            "at": "0x0015",
+            "cl": "0xfc11",
+            "ep": 1,
+            "fn": "zcl:attr"
+          },
+          "write": {
+            "at": "0x0015",
+            "cl": "0xfc11",
+            "dt": "0x21",
+            "ep": 1,
+	        "range": [
+              0.5,
+              3599.5
+            ],
+            "eval": "Item.val",
+            "fn": "zcl:attr"
+          },
+          "parse": {
+            "at": "0x0015",
+            "cl": "0xfc11",
+            "ep": 1,
+            "eval": "Item.val = Attr.val",
+            "fn": "zcl:attr"
+          }
+        },
+        {
+          "name": "config/detachrelaymode",
+          "read": {
+            "at": "0x0017",
+            "cl": "0xfc11",
+            "ep": 1,
+            "fn": "zcl:attr"
+          },
+          "write": {
+            "at": "0x0017",
+            "cl": "0xfc11",
+            "dt": "0x10",
+            "ep": 1,
+            "eval": "Item.val",
+            "fn": "zcl:attr"
+          },
+          "parse": {
+            "at": "0x0017",
+            "cl": "0xfc11",
+            "ep": 1,
+            "eval": "Item.val = Attr.val",
+            "fn": "zcl:attr"
+          }
+        },
+        {
+          "name": "config/on"
+        },
+        {
+          "name": "config/on/delayedpoweron",
+          "refresh.interval": 3600,
+          "read": {
+            "at": "0x0014",
+            "cl": "0xfc11",
+            "ep": 1,
+            "fn": "zcl:attr"
+          },
+          "write": {
+            "at": "0x0014",
+            "cl": "0xfc11",
+            "dt": "0x10",
+            "ep": 1,
+            "eval": "Item.val",
+            "fn": "zcl:attr"
+          },
+          "parse": {
+            "at": "0x0014",
+            "cl": "0xfc11",
+            "ep": 1,
+            "eval": "Item.val = Attr.val",
+            "fn": "zcl:attr"
+          }
+        },
+        {
+          "name": "config/on/startup",
+		  "datatype": "enum8",
+          "refresh.interval": 3600,
+          "default": 255
+        },
+        {
+          "name": "config/reachable"
+        },
+        {
+          "name": "state/buttonevent",
+          "description": "The last received button event."
+        },
+        {
+          "name": "state/lastupdated"
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "bind": "unicast",
+      "src.ep": 1,
+      "cl": "0x0006",
+      "report": [
+        {
+          "at": "0x0000",
+          "dt": "0x10",
+          "min": 5,
+          "max": 1800
+        }
+      ]
+    }
+  ]
+}
