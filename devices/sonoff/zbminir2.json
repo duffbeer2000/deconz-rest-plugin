@@ -226,7 +226,6 @@
             "cl": "0xfc11",
             "at": "0x0012",
             "dt": "0x29",
-            "mf": "0x1286",
             "eval": "if (Item.val == 'off') { 9 } else if (Item.val == 'on') { 20 }"
           },
           "values": [
