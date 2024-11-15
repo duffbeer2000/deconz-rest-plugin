@@ -5731,7 +5731,7 @@ Contactor > On/off=0003 - HP/HC=0004</description>
     <cluster id="0xfc11" name="Cluster for Sonoff Specific Attributes" mfcode="0x1286">
       <description>Cluster for Sonoff Specific Attributes</description>
       <server>
-        <attribute id="0x0012" name="Radio Power Turbo Mode" type="s16" access="r" required="m"></attribute>
+        <attribute id="0x0012" name="Radio Power Turbo Mode" type="s16" access="rw" required="m"></attribute>
         <attribute id="0x0014" name="Power-On State" type="bool" access="rw" required="m"></attribute>
         <attribute id="0x0015" name="Power-On Time" type="u16" access="rw" required="m"></attribute>
         <attribute id="0x0016" name="External Switch Mode" type="u8" access="rw" required="m"></attribute>
