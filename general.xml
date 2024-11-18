@@ -461,8 +461,6 @@
               If we need to decrease the measurement value by 100LUX, then this parameter value will be -100.
 </description>
           </attribute>
-        </attribute-set>
-        <attribute-set id="0x9000" description="Sunricher specific" mfcode="0x1224">
           <attribute id="0x9001" name="Light PWM Frequency" type="u16" default="0x0CE4" access="rw" required="m" mfcode="0x1224">
             <description>Works after reset power of the device, the device that directly outputs PWM can be configured,
               DO NOT set the PWM frequency too high which will affect the dimming resolution.</description>
